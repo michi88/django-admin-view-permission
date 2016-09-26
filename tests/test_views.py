@@ -84,7 +84,7 @@ class TestModelAdminViews(AdminViewPermissionViewsTestCase):
                     args=(self.object_testmodel4.pk,))
         )
         assert response.status_code == 200
-        assert 'property field value' in response.content
+        assert b'property field value' in response.content
 
     def test_change_view_simple_user_unauthorized_post(self):
         self.client.login(username='simple_user', password='simple_user')
