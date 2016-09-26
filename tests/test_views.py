@@ -83,7 +83,6 @@ class TestModelAdminViews(AdminViewPermissionViewsTestCase):
             reverse('admin:%s_%s_change' % ('test_app', 'testmodel4'),
                     args=(self.object_testmodel4.pk,))
         )
-        print response.content
         assert response.status_code == 200
         assert 'property field value' in response.content
 
