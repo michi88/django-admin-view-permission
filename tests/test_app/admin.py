@@ -64,4 +64,5 @@ class TestModel1Form(forms.ModelForm):
 class ModelAdmin1WithFormExclude(view_admin.AdminViewPermissionModelAdmin):
     form = TestModel1Form
 
+
 admin.site.register(TestModel1, DefaultModelAdmin)

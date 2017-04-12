@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 import pytest
 from django.contrib import admin
 from django.core.exceptions import FieldError
-from django.forms import ModelForm
 from django.test import SimpleTestCase, override_settings
 
 from admin_view_permission.admin import (
@@ -277,7 +276,8 @@ class TestAdminViewPermissionBaseModelAdmin(AdminViewPermissionTestCase):
 
     def test_get_fields_excluded_model_form_and_admin_exclude_super_user(self):
         super_user = self.create_super_user()
-        # should override the form exclude when explicitly set on the admin exclude
+        # should override the form exclude when explicitly set on the
+        # admin exclude
         self.modeladmin_testmodel1_with_form_exclude.exclude = ['var3']
         fields = self.modeladmin_testmodel1_with_form_exclude.get_fields(
             self.django_request(super_user), self.object_testmodel1)
